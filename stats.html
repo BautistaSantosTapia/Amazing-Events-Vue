@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/Favi_Amazing_Events.png" type="image/x-icon">
+    <title>Stats</title>
+</head>
+<body>
+    
+    <header class="hea5">
+        <div class="dh5">
+            <div class="imglogo">
+                <img src="./img/Logo_Amazing_Events.png" alt="Logo">
+            </div>
+            <nav class="navh5">
+                <a href="index.html">Home</a>
+                <a href="upevents.html">Upcoming Events</a>
+                <a href="pastevents.html">Past Events</a>
+                <a href="contact.html">Contact</a>
+                <a href="#" class="stats">Stats</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="sec51">
+        <h1>STATS</h1>
+    </section>
+
+    <div id="app">
+        <div class="dt51">
+
+            <table class="t51" id="t51">
+                <thead>
+                    <tr>
+                        <th colspan="3">Events Statistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Events with the highest percentage of attendance</td>
+                        <td>Events with the lowest percentage of attendance</td>
+                        <td>Events with larger capacity</td>
+                    </tr>
+                    <tr>
+                        <td id="mayorAudiencia">{{objeto1.name + ": " + numMayor + "%"}}</td>
+                        <td id="menorAudiencia">{{objeto2.name + ": " + numMinimo + "%"}}</td>
+                        <td id="mayorCapacidad">{{objeto3.name + ": " +objeto3.capacity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="t52" id="t52">
+                <thead>
+                    <tr>
+                        <th colspan="3">Upcoming events statistics by category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Categories</td>
+                        <td>Revenues</td>
+                        <td>Percentage of attendance</td>
+                    </tr> 
+                    <tr v-for="(carta) in filtroUpTabla">
+                        <td id="upCate1">{{carta.category + " (" + carta.name + ")"}}</td>
+                        <td id="upReve1"> {{"$" + carta.price * carta.estimate}}</td>
+                        <td id="upAtte1"> {{(carta.estimate * 100 / carta.capacity).toFixed(2) + "%"}}</td>
+                    </tr> <!--
+                    <tr>
+                        <td id="upCate2">< Costume Party </td>
+                        <td id="upReve2">< $108,000 </td>
+                        <td id="upAtte2">< 75% </td>
+                    </tr>
+                    <tr>
+                        <td id="upCate3"> Let's go to the cinema</td>
+                        <td id="upReve3"> $2,250,000</td>
+                        <td id="upAtte3"> 100%</td>
+                    </tr>
+                    <tr>
+                        <td id="upCate4"> Let's go to the cinema</td>
+                        <td id="upReve4"> $2,250,000</td>
+                        <td id="upAtte4"> 100%</td>
+                    </tr>
+                    <tr>
+                        <td id="upCate5"> Let's go to the cinema</td>
+                        <td id="upReve5"> $2,250,000</td>
+                        <td id="upAtte5"> 100%</td>
+                    </tr>
+                    <tr>
+                        <td id="upCate6"> Let's go to the cinema</td>
+                        <td id="upReve6"> $2,250,000</td>
+                        <td id="upAtte6"> 100%</td>
+                    </tr>
+                    <tr>
+                        <td id="upCate7"> Let's go to the cinema</td>
+                        <td id="upReve7"> $2,250,000</td>
+                        <td id="upAtte7"> 100%</td>
+                    </tr>-->
+                </tbody>
+            </table>
+
+            <table class="t53" id="t53">
+                <thead>
+                    <tr>
+                        <th colspan="3">Past events statistics by category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Categories</td>
+                        <td>Revenues</td>
+                        <td>Percentage of attendance</td>
+                    </tr>
+                    <tr v-for="(carta) in filtroPastTabla">
+                        <td id="pastCate1">{{carta.category + " (" + carta.name + ")"}}</td>
+                        <td id="pastReve1">{{"$" + carta.price * carta.assistance}}</td>
+                        <td id="pastAtte1">{{(carta.assistance * 100 / carta.capacity).toFixed(2) + "%"}}</td>
+                    </tr><!--
+                    <tr>
+                        <td id="pastCate2">Book Exchange</td>
+                        <td id="pastReve2">$123,286</td>
+                        <td id="pastAtte2">82,19%</td>
+                    </tr>
+                    <tr>
+                        <td id="pastCate3">Museum</td>
+                        <td id="pastReve3">$988,380</td>
+                        <td id="pastAtte3">80,36%</td>
+                    </tr>
+                    <tr>
+                        <td id="pastCate4">Food Fair</td>
+                        <td id="pastReve4">$213,780</td>
+                        <td id="pastAtte4">95,01%</td>
+                    </tr>
+                    <tr>
+                        <td id="pastCate5">Food Fair</td>
+                        <td id="pastReve5">$213,780</td>
+                        <td id="pastAtte5">95,01%</td>
+                    </tr>
+                    <tr>
+                        <td id="pastCate6">Food Fair</td>
+                        <td id="pastReve6">$213,780</td>
+                        <td id="pastAtte6">95,01%</td>
+                    </tr>
+                    <tr>
+                        <td id="pastCate7">Food Fair</td>
+                        <td id="pastReve7">$213,780</td>
+                        <td id="pastAtte7">95,01%</td>
+                    </tr>-->
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <footer class="foo5">
+        <div class="foo50">
+            <div class="foo51">
+                <div><a href="https://www.instagram.com"><img src="./img/instagram-new--v1.png" alt="insta"></a></div>
+                <div><a href="https://es-la.facebook.com"><img src="./img/facebook-new.png" alt="face"></a></div>
+                <div><a href="https://www.whatsapp.com"><img src="./img/whatsapp--v1.png" alt="wha"></a></div>
+            </div>
+            <div class="foo52">
+                <h2>cohort</h2>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>    
+    <script src="./main.js"></script>
+</body>
+</html>

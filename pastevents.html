@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/Favi_Amazing_Events.png" type="image/x-icon">
+    <title>Past Events</title>
+</head>
+<body>
+    
+    <header class="hea3">
+        <div class="dh3">
+            <div class="imglogo">
+                <img src="./img/Logo_Amazing_Events.png" alt="Logo">
+            </div>
+            <nav class="navh3">
+                <a href="index.html">Home</a>
+                <a href="upevents.html">Upcoming Events</a>
+                <a href="#" class="past">Past Events</a>
+                <a href="contact.html">Contact</a>
+                <a href="stats.html">Stats</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="sec31">
+        <h1>PAST EVENTS</h1>
+    </section>
+
+    <div id="app">
+        <div class="sec32">
+            <div class="ds32" id="ds32">
+                <form class="dsForm14">
+                    <div class="ds14" v-for="categoria in categoriasPast">
+                        <label :for="categoria"> {{categoria}} </label>
+                        <input  type="checkbox" :value="categoria" :id="categoria" v-model="categoriasSelecPast"><!--  --> 
+                    </div>
+                    <!-- {{categoriasSelecPast}} -->
+                </form>
+                    <!-- 
+                    <label for="Food-Fair">
+                        <input type="checkbox" class="category" value="Food Fair" id="Food-Fair">
+                        Food Fair
+                    </label>
+                    <label for="Museum">
+                        <input type="checkbox" class="category" value="Museum" id="Museum">
+                        Museum
+                    </label>
+                    <label for="Costume-Party">
+                        <input type="checkbox" class="category" value="Costume Party" id="Costume-Party">
+                        Costume Party
+                    </label>
+                    <label for="Music-Concert">
+                        <input type="checkbox" class="category" value="Music Concert" id="Music-Concert">
+                        Music Concert
+                    </label>
+                    <label for="Race">
+                        <input type="checkbox" class="category" value="Race" id="Race">
+                        Race
+                    </label>
+                    <label for="Book-Exchange">
+                        <input type="checkbox" class="category" value="Book Exchange" id="Book-Exchange">
+                        Book Exchange
+                    </label>
+                    <label for="Cinema">
+                        <input type="checkbox" class="category" value="Cinema" id="Cinema">
+                        Cinema
+                    </label>
+                </form> -->
+            </div>
+            <div class="ds33">
+                <form>
+                    <input required type="text" placeholder="Search..." id="searchbox" class="filtro" v-model="nombrePast">
+                    <!-- {{nombrePast}} -->
+                </form>
+            </div>
+        </div>
+
+
+        <div class="dcrd3" id="dcrd3">
+            {{buscadorPast}}
+
+            <div v-if="cartasFiltradasPast.length == 0" class="card31">
+                <div class="cd312">
+                    <h5>No hay nada</h5>
+                    <p>Ajuste los parametros de busqueda para poder seguir navegando por la web</p>
+                </div>
+            </div>
+
+
+
+            <div v-else class="card31"  v-for="(carta) in cartasFiltradasPast">
+                <div class="cd311img">
+                    <img :src="carta.image" :alt="carta.name">
+                </div>
+                <div class="cd312">
+                    <h5>{{carta.name}}</h5>
+                    <p>{{carta.description}}</p>
+                </div>
+                <div class="cd313">
+                    <p class="card-link"><b>Price: ${{carta.price}}</b></p>
+                    <a :href="'details.html?_id=' + carta._id" class="card-link">View More</a>
+                </div>
+            </div>
+
+
+    <!--
+
+            <div class="card32" >
+                <div class="cd321img">
+                    <img src="./img/books.jpg" alt="books">
+                </div>
+                <div class="cd322">
+                    <h5>School Book Fair</h5>
+                    <p>Bring your unused school book and bring the one you need.</p>
+                </div>
+                <div class="cd323">
+                    <p class="card-link"><b>Price: $1</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+
+            <div class="card33">
+                <div class="cd331img">
+                    <img src="./img/Salida_al_museo5.jpg" alt="museo">
+                </div>
+                <div class="cd332">
+                    <h5>Jurassic Park</h5>
+                    <p>Let's go to the paleontology museum for an incredible tour to learn about the largest dinosaurs.</p>
+                </div>
+                <div class="cd333">
+                    <p class="card-link"><b>Price: $15</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+
+            <div class="card34">
+                <div class="cd341img">
+                    <img src="./img/Feria_de_comidas7.jpg" alt="feria">
+                </div>
+                <div class="cd342">
+                    <h5>Festival of the collectivities</h5>
+                    <p>Enjoy your favorite dishes from different countries in a unique event for the whole family.</p>
+                </div>
+                <div class="cd343">
+                    <p class="card-link"><b>Price: $5</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+    <footer class="foo3">
+        <div class="foo30">
+            <div class="foo31">
+                <div><a href="https://www.instagram.com"><img src="./img/instagram-new--v1.png" alt="insta"></a></div>
+                <div><a href="https://es-la.facebook.com"><img src="./img/facebook-new.png" alt="face"></a></div>
+                <div><a href="https://www.whatsapp.com"><img src="./img/whatsapp--v1.png" alt="wha"></a></div>
+            </div>
+            <div class="foo32">
+                <h2>cohort</h2>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

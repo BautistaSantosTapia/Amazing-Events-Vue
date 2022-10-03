@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/Favi_Amazing_Events.png" type="image/x-icon">
+    <title>Details</title>
+</head>
+<body>
+    <header class="hea6">
+        <div class="dh6">
+            <div class="imglogo">
+                <img src="./img/Logo_Amazing_Events.png" alt="Logo">
+            </div>
+            <nav class="navh6">
+                <a href="index.html">Home</a>
+                <a href="upevents.html">Upcoming Events</a>
+                <a href="pastevents.html">Past Events</a>
+                <a href="contact.html">Contact</a>
+                <a href="stats.html">Stats</a>
+            </nav>
+        </div>
+    </header>
+    <div id="app">
+        <div class="sec61" id="sec61"> 
+            <div class="ds62" v-if="infoCarta.assistance == undefined">
+                <div class="ds63">
+                <img :src="infoCarta.image" :alt="infoCarta.name">
+                </div>
+                <div class="ds64">
+                    <h2>{{infoCarta.name}}</h2>
+                    <p>{{infoCarta.description}}</p>
+                    <p>Place: {{infoCarta.place}}</p>
+                    <p>Date: {{infoCarta.date}}</p>
+                    <p>Capacity: {{infoCarta.capacity}}</p>
+                    <p>Estimate: {{infoCarta.estimate}}</p>
+                    <p>Category: {{infoCarta.category}}</p>
+                    <p>Price: ${{infoCarta.price}}</p>
+                </div>
+            </div>
+            <div class="ds62" v-if="infoCarta.estimate == undefined">
+                <div class="ds63">
+                    <img :src="infoCarta.image" :alt="infoCarta.name">
+                </div>
+                <div class="ds64">
+                    <h2>{{infoCarta.name}}</h2>
+                    <p>{{infoCarta.description}}</p>
+                    <p>Place: {{infoCarta.place}}</p>
+                    <p>Date: {{infoCarta.date}}</p>
+                    <p>Capacity: {{infoCarta.capacity}}</p>
+                    <p>Assistance: {{infoCarta.assistance}}</p>
+                    <p>Category: {{infoCarta.category}}</p>
+                    <p>Price: ${{infoCarta.price}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer class="foo6">
+    <div class="foo60">
+        <div class="foo61">
+            <div><a href="https://www.instagram.com"><img src="./img/instagram-new--v1.png" alt="insta"></a></div>
+            <div><a href="https://es-la.facebook.com"><img src="./img/facebook-new.png" alt="face"></a></div>
+            <div><a href="https://www.whatsapp.com"><img src="./img/whatsapp--v1.png" alt="wha"></a></div>
+        </div>
+        <div class="foo62">
+            <h2>cohort</h2>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

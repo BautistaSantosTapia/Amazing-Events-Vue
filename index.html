@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/Favi_Amazing_Events.png" type="image/x-icon">
+    <title>Amazing Events</title>
+</head>
+<body>
+
+    <header class="hea1">
+        <div class="dh1">
+            <div class="imglogo">
+                <img src="./img/Logo_Amazing_Events.png" alt="Logo">
+            </div>
+            <nav class="navh1">
+                <a href="#" class="home">Home</a>
+                <a href="upevents.html">Upcoming Events</a>
+                <a href="pastevents.html">Past Events</a>
+                <a href="contact.html">Contact</a>
+                <a href="stats.html">Stats</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="sec11">
+        <h1>HOME</h1>
+    </section>
+
+    <div id="app">
+        <div class="sec12">
+            <div class="ds12" id="ds12" > 
+                <form class="dsForm14">
+                    <div class="ds14" v-for="categoria in categorias">
+                        <label :for="categoria"> {{categoria}} </label>
+                        <input type="checkbox" :id="categoria" :value="categoria" v-model="categoriasSelec">
+                        
+                    </div>
+                    <!-- {{categoriasSelec}} -->
+                    
+                    <!--
+                    <label for="Museum">
+                        <input type="checkbox" class="category" value="Museum" id="Museum">
+                        Museum
+                    </label>
+                    <label for="Costume-Party">
+                        <input type="checkbox" class="category" value="Costume Party" id="Costume-Party">
+                        Costume Party
+                    </label>
+                    <label for="Music-Concert">
+                        <input type="checkbox" class="category" value="Music Concert" id="Music-Concert">
+                        Music Concert
+                    </label>
+                    <label for="Race">
+                        <input type="checkbox" class="category" value="Race" id="Race">
+                        Race
+                    </label>
+                    <label for="Book-Exchange">
+                        <input type="checkbox" class="category" value="Book Exchange" id="Book-Exchange">
+                        Book Exchange
+                    </label>
+                    <label for="Cinema">
+                        <input type="checkbox" class="category" value="Cinema" id="Cinema">
+                        Cinema
+                    </label> -->
+                </form>
+            </div>
+            <div class="ds13">
+                <form id="formulario">
+                    <input required type="text" placeholder="Search..." id="searchbox" class="filtro" v-model="nombre" >
+                        <!-- {{nombre}}   -->
+                    <!--  @keyup="functFiltroNombre" -->
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class="dcrd1" id="dcrd1" >
+            {{buscador}}
+            <div  v-if="cartasFiltradas.length == 0"  class="card11">
+                <div class="cd112">
+                    <h5>No hay nada</h5>
+                    <p>Ajuste los parametros de busqueda para poder seguir navegando por la web</p>
+                </div>
+            </div>
+            
+    <!--         <div  v-if="cartasFiltradas.length == 0"  class="card11" v-for="carta in cartas">
+                <div class="cd111img">
+                    <img :src="carta.image" :alt="carta.name">
+                </div>
+                <div class="cd112">
+                    <h5>{{carta.name}}</h5>
+                    <p>{{carta.description}}</p>
+                </div>
+                <div class="cd113">
+                    <p class="card-link"><b>Price: ${{carta.price}}</b></p>
+                    <a :href="'details.html?_id=' + carta._id" class="card-link">View More</a>
+                </div>
+            </div> -->
+
+            <div v-else class="card11" v-for="carta in cartasFiltradas">
+                <div class="cd111img">
+                    <img :src="carta.image" :alt="carta.name">
+                </div>
+                <div class="cd112">
+                    <h5>{{carta.name}}</h5>
+                    <p>{{carta.description}}</p>
+                </div>
+                <div class="cd113">
+                    <p class="card-link"><b>Price: ${{carta.price}}</b></p>
+                    <a :href="'details.html?_id=' + carta._id" class="card-link">View More</a>
+                </div>
+            </div> 
+
+
+
+
+        <!--
+            <div class="card12" >
+                <div class="cd121img">
+                    <img src="./img/Salida_al_museo5.jpg" alt="museo">
+                </div>
+                <div class="cd122">
+                    <h5>Jurassic Park</h5>
+                    <p>Let's go to the paleontology museum for an incredible tour to learn about the largest dinosaurs.</p>
+                </div>
+                <div class="cd123">
+                    <p class="card-link"><b>Price: $15</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+
+            <div class="card13">
+                <div class="cd131img">
+                    <img src="./img/Fiesta_de_disfraces1.jpg" alt="fiesta">
+                </div>
+                <div class="cd132">
+                    <h5>Halloween Night</h5>
+                    <p>Come in your scariest costume character to win amazing prizes.</p>
+                </div>
+                <div class="cd133">
+                    <p class="card-link"><b>Price: $12</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+
+            <div class="card14" >
+                <div class="cd141img">
+                    <img src="./img/Concierto_de_musica1.jpg" alt="musica">
+                </div>
+                <div class="cd142">
+                    <h5>Metallica in concert</h5>
+                    <p>The only concert of the most emblematic band in the world.</p>
+                </div>
+                <div class="cd143">
+                    <p class="card-link"><b>Price: $150</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+            
+            <div class="card15" >
+                <div class="cd151img">
+                    <img src="./img/Maraton3.jpg" alt="maraton">
+                </div>
+                <div class="cd152">
+                    <h5>10K for life</h5>
+                    <p>Come and exercise, improve your health and lifestyle.</p>
+                </div>
+                <div class="cd153">
+                    <p class="card-link"><b>Price: $3</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+            
+            <div class="card16" >
+                <div class="cd161img">
+                    <img src="./img/books.jpg" alt="books">
+                </div>
+                <div class="cd162">
+                    <h5>School Book Fair</h5>
+                    <p>Bring your unused school book and bring the one you need.</p>
+                </div>
+                <div class="cd163">
+                    <p class="card-link"><b>Price: $1</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+
+            
+            <div class="card17" >
+                <div class="cd171img">
+                    <img src="./img/Cine7.jpg" alt="cine">
+                </div>
+                <div class="cd172">
+                    <h5>Avengers</h5>
+                    <p>Marvel's Avengers 3d premiere the start of an epic saga with your best superheroes.</p>
+                </div>
+                <div class="cd173">
+                    <p class="card-link"><b>Price: $250</b></p>
+                    <a href="details.html" class="card-link">View More</a>
+                </div>
+            </div>
+    -->
+        
+        </div>
+    </div>
+
+
+    <footer class="foo1">
+        <div class="foo10">
+            <div class="foo11">
+                <div><a href="https://www.instagram.com"><img src="./img/instagram-new--v1.png" alt="insta"></a></div>
+                <div><a href="https://es-la.facebook.com"><img src="./img/facebook-new.png" alt="face"></a></div>
+                <div><a href="https://www.whatsapp.com"><img src="./img/whatsapp--v1.png" alt="wha"></a></div>
+            </div>
+            <div class="foo12">
+                <h2>cohort</h2>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
